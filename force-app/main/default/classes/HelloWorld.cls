@@ -1,5 +1,7 @@
 public class HelloWorld {
-public String hello() {
-return 'Hello World!';
-}
+
+    void hello(){
+        System.debug('Hola Mundo');
+    }
+    
 }
