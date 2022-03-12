@@ -18,7 +18,7 @@ public class HelloWorld {
     Inventario__c inv = new Inventario__c();
     
         inv.Name = 'Test';
-        inv.Cantidad_apart_c__c = 3;
+        inv.Cantidad_apart__c = 3;
         
         List<sObject> lst = new List<sObject>();
         lst.add(inv);
