@@ -13,8 +13,7 @@ public class HelloWorld {
         }else{
             this.test='es cero o menor';}
         
-        Account acc = new Account();
-
+    Account acc = new Account();
     Inventario__c inv = new Inventario__c();
     
         inv.Name = 'Test';
