@@ -1,6 +1,6 @@
 public with sharing class QuotationHelper {
     
-   public void initialConfig(){
+   public static void initialConfig(){
     Account miCuenta = new Account();
     Account miCuenta2 = new Account();
 
