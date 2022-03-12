@@ -13,7 +13,6 @@ public with sharing class QuotationHelper {
     public static List<Inventario__c> searchContactsAndLeads(String a) {
         List<Inventario__c> lst = new List<Inventario__c>([SELECT Name,CodigoProd__c,Cantidad_dis__c,Cantidad_apart__c FROM Inventario__c]);    
         return lst;    
-
     }
     
 }
