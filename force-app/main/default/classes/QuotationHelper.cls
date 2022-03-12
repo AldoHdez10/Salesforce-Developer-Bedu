@@ -5,7 +5,9 @@ public with sharing class QuotationHelper {
     Account miCuenta2 = new Account();
 
     miCuenta.Name ='Compumundo';
-    miCuenta2.Name = 'Compuworld' ;
+    miCuenta2.Name = 'Compuworld';
+    insert miCuenta;
+    insert miCuenta2;
 
 
 
