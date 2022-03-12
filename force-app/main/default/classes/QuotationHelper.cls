@@ -9,12 +9,11 @@ public with sharing class QuotationHelper {
     insert miCuenta;
     insert miCuenta2;
     }
+    
+    public static List<Inventario__c> searchContactsAndLeads(String a) {
+        List<Inventario__c> lst = new List<Inventario__c>([SELECT Name,CodigoProd__c,Cantidad_dis__c,Cantidad_apart__c FROM Inventario__c]);    
+        return lst;    
 
-    public static productsInInventory(){
-        List<Inventario__c> lst = [SELECT FIELDS(ALL) FROM Inventario__c LIMIT 200];
-        for(integer k = 0; k <= lst.size(); k++){
-            System.debug('Result:'+lst);
-            }
-         return lst;   
     }
+    
 }
