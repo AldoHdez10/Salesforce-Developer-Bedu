@@ -10,10 +10,11 @@ public with sharing class QuotationHelper {
     insert miCuenta2;
     }
 
-    public static void productsInInventory(){
+    public static productsInInventory(){
         List<Inventario__c> lst = [SELECT FIELDS(ALL) FROM Inventario__c LIMIT 200];
         for(integer k = 0; k <= lst.size(); k++){
             System.debug('Result:'+lst);
             }
-        }
+         return lst;   
+    }
 }
