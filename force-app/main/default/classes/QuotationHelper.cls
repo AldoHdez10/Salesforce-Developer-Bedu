@@ -41,7 +41,8 @@ public class QuotationHelper implements QuotationSync{
                 b = (Integer) [SELECT Cantidad_dis__c From Inventario__c WHERE CodigoProd__c LIKE :a].Cantidad_dis__c;
            }
         }
-        return b; 
+        System.debug(b);
+        return b;
     }
 
 }
