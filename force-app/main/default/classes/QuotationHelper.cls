@@ -1,4 +1,4 @@
-public class QuotationHelper{
+public class QuotationHelper implements QuotationSync{
 
    public static void initialConfig(){
     Account miCuenta = new Account();
@@ -10,7 +10,7 @@ public class QuotationHelper{
     insert miCuenta2;
     }
     
-    public static List<Inventario__c> searchContactsAndLeads(String a) {
+    public static List<Inventario__c> productsInInventory(String a) {
         List<Inventario__c> lst = new List<Inventario__c>([SELECT Name,CodigoProd__c,Cantidad_dis__c,Cantidad_apart__c FROM Inventario__c]);    
         return lst;    
     }
