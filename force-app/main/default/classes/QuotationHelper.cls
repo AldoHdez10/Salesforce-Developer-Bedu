@@ -1,6 +1,4 @@
-
-
-public class QuotationHelper implements QuotationSync {
+public class QuotationHelper{
 
    public static void initialConfig(){
     Account miCuenta = new Account();
@@ -16,8 +14,6 @@ public class QuotationHelper implements QuotationSync {
         List<Inventario__c> lst = new List<Inventario__c>([SELECT Name,CodigoProd__c,Cantidad_dis__c,Cantidad_apart__c FROM Inventario__c]);    
         return lst;    
     }
-    
-    public Integer ProductCode();
 
     public static Boolean confirmProductExistByCode(String x){
         Boolean status = false;
@@ -33,5 +29,19 @@ public class QuotationHelper implements QuotationSync {
         return status;
     }
 
+    public static Integer searchProductByCode(String x){
+        String a = x;
+        Integer b = 0;
+        List<Inventario__c> pList = new List<Inventario__c>([SELECT Cantidad_dis__c From Inventario__c WHERE CodigoProd__c LIKE :a]);
+        for(Inventario__c c : pList ){
+            if(c.Cantidad_dis__c == 0){
+              b=0;
+            }
+            else{
+                b = (Integer) [SELECT Cantidad_dis__c From Inventario__c WHERE CodigoProd__c LIKE :a].Cantidad_dis__c;
+           }
+        }
+        return b; 
+    }
 
 }
