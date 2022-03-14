@@ -1,5 +1,7 @@
-public with sharing class QuotationHelper {
-    
+
+
+public class QuotationHelper implements QuotationSync {
+
    public static void initialConfig(){
     Account miCuenta = new Account();
     Account miCuenta2 = new Account();
@@ -15,4 +17,21 @@ public with sharing class QuotationHelper {
         return lst;    
     }
     
+    public Integer ProductCode();
+
+    public static Boolean confirmProductExistByCode(String x){
+        Boolean status = false;
+        List<Product2> pList = new List<Product2>([SELECT ProductCode From Product2]);
+        for(Product2 a : pList ){
+            if(a.ProductCode == x){
+                status = true;  
+            }
+            else{
+             status=false;
+           }
+        }
+        return status;
+    }
+
+
 }
