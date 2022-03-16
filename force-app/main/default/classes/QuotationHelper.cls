@@ -1,4 +1,4 @@
-public class QuotationHelper implements QuotationSync{
+public class QuotationHelper implements QuotationSync,Database.Batchable{
 
    public static void initialConfig(){
     Account miCuenta = new Account();
@@ -44,5 +44,17 @@ public class QuotationHelper implements QuotationSync{
         System.debug(b);
         return b;
     }
+
+    public static StockEmptyAlert() {
+       Integer cantP=  productsInInventory();
+       if(cantP==0){
+          FeedItem post = new FeedItem();
+          post.Inventario__c=Id; 
+          post.Body = 'Existen productos en inventario sin existencia';
+          insert post;
+          Datetime tiemp = Datetime.now();
+          String tiempo = tiemp.format();
+       }
+    } 
 
 }
