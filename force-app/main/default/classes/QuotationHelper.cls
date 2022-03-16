@@ -1,6 +1,11 @@
-public class QuotationHelper implements QuotationSync,Database.Batchable{
+public class QuotationHelper implements QuotationSync{
+ 
+    public Integer ProductCode() {
 
-   public static void initialConfig(){
+    return ProductCode();  
+    } 
+     
+    public static void initialConfig(){
     Account miCuenta = new Account();
     Account miCuenta2 = new Account();
 
@@ -45,16 +50,16 @@ public class QuotationHelper implements QuotationSync,Database.Batchable{
         return b;
     }
 
-    public static StockEmptyAlert() {
-       Integer cantP=  productsInInventory();
-       if(cantP==0){
-          FeedItem post = new FeedItem();
-          post.Inventario__c=Id; 
-          post.Body = 'Existen productos en inventario sin existencia';
-          insert post;
-          Datetime tiemp = Datetime.now();
-          String tiempo = tiemp.format();
-       }
-    } 
-
+    public static void StockEmptyAlert() {
+       List<Inventario__c> pList = new List<Inventario__c>(productsInInventory());
+       for(Inventario__c l : pList ){
+        if(l.Cantidad_dis__c == 0){
+            FeedItem post = new FeedItem();
+            post.Body = 'Existen productos en inventario sin existencia';
+            insert post;
+            Datetime tiemp = Datetime.now();
+            String tiempo = tiemp.format();
+        }     
+       } 
+    }   
 }
