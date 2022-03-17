@@ -1,5 +1,8 @@
 public class QuotationHelper implements QuotationSync{
- 
+
+
+public void prueba1(CustomWebInventoryController controller){}
+
     public Integer ProductCode() {
 
     return ProductCode();  
@@ -61,5 +64,7 @@ public class QuotationHelper implements QuotationSync{
             String tiempo = tiemp.format();
         }     
        } 
-    }   
+    }
+    
+    
 }
