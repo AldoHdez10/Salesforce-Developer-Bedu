@@ -6,7 +6,7 @@ trigger Disparador1 on Quote (after update) {
          for(Quote cot: trigger.new)
            {
             List <QuoteLineItem> qli = [SELECT Quantity From QuoteLineItem WHERE QuoteId = :cot.Id];
-            List <Product> sli = [SELECT ProductCode__c FROM Product];
+            List <Product> sli = [SELECT Id, Name, (SELECT Id, Quantity, Product2Id  FROM QuoteLineItems) FROM Quote];
             List <Inventario__c> inv = new List<Inventario__c>();
             for(QuoteLineItem li :qli){
 
