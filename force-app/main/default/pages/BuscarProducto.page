@@ -1,0 +1,54 @@
+<apex:page Controller="CustomWebInventoryController" > 
+  <apex:form >
+  <apex:pageBlock >
+     <apex:pageMessages ></apex:pageMessages>
+      
+          <apex:pageBlockSection >
+              <label for="name">Código del Producto</label>
+              <apex:inputText value="{!productCode}"/>  
+          </apex:pageBlockSection>
+      
+          <apex:pageBlockButtons >
+              <apex:commandButton action="{!doSubmit}" value="Buscar un producto"/>
+          </apex:pageBlockButtons>
+     
+          <apex:pageBlockSection >      
+          <apex:pageBlockTable value="{!pro}" var="a">
+           <table class="tg">
+           <caption>Detalles del producto</caption>
+           <thead>
+             <tr>
+               <th class="tg-fymr">Detalles del producto</th>
+           	   <th class="tg-fymr">Precio de la lista</th>
+               <th class="tg-fymr">ID Externo</th>
+               <th class="tg-fymr">Disponible</th>
+               <th class="tg-fymr">Cantidad</th>
+              </tr>
+           </thead>            
+<tbody>
+  <tr value="{!pList}" var="b">
+    <td class="tg-0pky">{a.Name}</td>
+    <td class="tg-0pky">{a.Precio__c}</td>
+    <td class="tg-0pky">{a.IDExternoProduct__c}</td>
+    <td class="tg-0pky">{b.Cantidad_dis__c}</td>
+    <td class="tg-0pky" contenteditable="true" ></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody>
+</table>
+       </apex:pageBlockTable>
+      </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+              <apex:commandButton action="{}" value="Atras"/>
+              <apex:commandButton action="{}" value="Cancelar"/>
+              <apex:commandButton action="{}" value="Guardar"/>
+        </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>
