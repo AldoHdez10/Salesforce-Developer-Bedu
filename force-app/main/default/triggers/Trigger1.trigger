@@ -6,17 +6,17 @@ trigger Disparador1 on Quote (after update) {
          for(Quote cot: trigger.new)
            {
             List <QuoteLineItem> qli = [SELECT Quantity From QuoteLineItem WHERE QuoteId = :cot.Id];
-            List <Product> sli = [SELECT Id, Name, (SELECT Id, Quantity, Product2Id  FROM QuoteLineItems) FROM Quote];
+            List <Quote> sli = [SELECT Id, Name, (SELECT Id, Quantity, Product2Id  FROM QuoteLineItems) FROM Quote];
             List <Inventario__c> inv = new List<Inventario__c>();
             for(QuoteLineItem li :qli){
 
-            Inventario__c inv2 =  [SELECT Cantidad_apart__c From Inventario__c WHERE CodigoProd__c = 343];
+            Inventario__c inv2 =  [SELECT Cantidad_apart__c From Inventario__c ];
             }
             //Declaracion QUERY de la Cantidad Apartada y del Codigo del Producto de la nueva cotizacion en objeto Cotizacion//
             //Declaracion QUERY de la Cantidad Apartada en el Inventario//
             //Suma de las Queris//
             //acutalizar inventario cantidad apartada
-              QuotationHelper.searchProductByCode(Trigger.new);
+            
              
              }
          }
