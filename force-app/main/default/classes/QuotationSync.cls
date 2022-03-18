@@ -1,3 +1,5 @@
 public interface QuotationSync {
-    Integer ProductCode();
+
+        Integer ProductCode();
+   
 }

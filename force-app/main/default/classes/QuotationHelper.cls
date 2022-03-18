@@ -2,11 +2,12 @@ public class QuotationHelper implements QuotationSync{
 
 
 public void prueba1(CustomWebInventoryController controller){}
+   
 
-    public Integer ProductCode() {
-
-    return ProductCode();  
-    } 
+public Integer ProductCode() {
+    return 1;  // Flat 5% discount
+}
+    
      
     public static void initialConfig(){
     Account miCuenta = new Account();
