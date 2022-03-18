@@ -1,4 +1,4 @@
-trigger Disparador1 on Quote (after update) {
+trigger Trigger1 on Quote (after update) {
     if(Trigger.isBefore) 
     {
       if (Trigger.isUpdate)
@@ -11,13 +11,14 @@ trigger Disparador1 on Quote (after update) {
             for(QuoteLineItem li :qli){
 
             Inventario__c inv2 =  [SELECT Cantidad_apart__c From Inventario__c ];
+  
             }
             //Declaracion QUERY de la Cantidad Apartada y del Codigo del Producto de la nueva cotizacion en objeto Cotizacion//
             //Declaracion QUERY de la Cantidad Apartada en el Inventario//
             //Suma de las Queris//
             //acutalizar inventario cantidad apartada
             
-             
+            
              }
          }
       }

@@ -11,8 +11,6 @@ public String p;
 public CustomWebInventoryController ac;
 
 public void prueb(CustomWebInventoryController ac){ this.ac = ac;}
-
-        
         public void doSubmit(){
         pList =	[SELECT Cantidad_dis__c From Inventario__c WHERE CodigoProd__c LIKE :productCode];          
         for(Inventario__c pList2 : pList){
