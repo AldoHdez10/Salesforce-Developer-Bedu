@@ -66,6 +66,23 @@ public Integer ProductCode() {
         }     
        } 
     }
+
+    public void reserveProduct(String codigoProducto, Double cantidadRequerida) {
+    Boolean exist = confirmProductExistByCode(codigoProducto);
+    if(exist == true){
+        Double cantDisp = searchProductByCode(codigoProducto);    
+        if(cantidadRequerida > cantDisp){
+            System.debug('No hay cantidad disponible');
+    
+        }
+        else{
+            Inventario__c inv = ([SELECT Cantidad_apart__c FROM Inventario__c WHERE CodigoProd__c	LIKE: codigoProducto]);
+            QuoteLineItem inv3 =  ([SELECT Cantidad_apart__c FROM QuoteLineItem WHERE CodigoProd__c LIKE: codigoProducto]);
+        
+        } 
+    }
+    
+    }
     
     
 }
